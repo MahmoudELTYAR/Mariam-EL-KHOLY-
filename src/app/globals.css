@@ -83,19 +83,32 @@ a {
   transform: translateY(110%);
 }
 
-.preview-panel {
-  animation: previewIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+@layer components {
+  .icon-btn {
+    @apply relative grid h-11 w-11 place-items-center rounded-full border border-paper/25 bg-ink/40 text-paper/85 backdrop-blur-sm transition-all duration-300;
+  }
+
+  .icon-btn:hover {
+    @apply border-volt/70 text-volt;
+  }
+
+  .icon-btn:active {
+    @apply scale-95;
+  }
+
+  .icon-btn:focus-visible {
+    outline: 2px solid var(--volt);
+    outline-offset: 3px;
+  }
 }
 
-@keyframes previewIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.img-mask-reveal {
+  clip-path: inset(8% 8% 8% 8%);
+  transition: clip-path 0.55s var(--ease-out);
+}
+
+.img-mask-reveal.is-in {
+  clip-path: inset(0 0 0 0);
 }
 
 body.has-custom-cursor,
@@ -104,25 +117,18 @@ body.has-custom-cursor button {
   cursor: none;
 }
 
+/* Soften — do NOT kill all transitions (carousel + UI need them) */
 @media (prefers-reduced-motion: reduce) {
   .grain {
     animation: none;
-  }
-
-  .animate-marquee {
-    animation: none !important;
   }
 
   html {
     scroll-behavior: auto;
   }
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .reveal-line > span {
+    transform: none;
   }
 }
 

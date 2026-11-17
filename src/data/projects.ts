@@ -31,7 +31,7 @@ export const projects: Project[] = [
       "A luxury editorial website for a Nile dahabiya retreat — calm typography, immersive photography, and booking journeys that feel as considered as the voyage itself.",
     tools: ["Figma", "Design Systems", "Prototyping", "Responsive UI"],
     cover: "/projects/dhara/cover.webp",
-    coverAlt: "Dhara Hospitality — screen 1",
+    coverAlt: "Dhara Hospitality — Fayrouz Sanctuary gallery hero",
     gallery: [
       {
         src: "/projects/dhara/gallery-01.webp",
@@ -103,7 +103,7 @@ export const projects: Project[] = [
       "A bilingual RTL platform for Saudi architectural heritage — books, partners, research, and place-based storytelling rooted in clay, craft, and community.",
     tools: ["Figma", "RTL Layout", "Design Systems", "Content Architecture"],
     cover: "/projects/uthaibat/cover.webp",
-    coverAlt: "Al-Uthaibat — screen 1",
+    coverAlt: "Al-Uthaibat — heritage books library interface",
     gallery: [
       {
         src: "/projects/uthaibat/gallery-01.webp",
@@ -151,7 +151,7 @@ export const projects: Project[] = [
       "Brand and website for a Munich-based private road-travel experience — editorial storytelling, trip discovery, and a personal host narrative that turns transfers into journeys.",
     tools: ["Figma", "Brand UI", "Prototyping", "Responsive Design"],
     cover: "/projects/guiver/cover.webp",
-    coverAlt: "Guiver — screen 1",
+    coverAlt: "Guiver — European private travel hero interface",
     gallery: [
       {
         src: "/projects/guiver/gallery-01.webp",
@@ -219,7 +219,7 @@ export const projects: Project[] = [
       "E-commerce interface for a handmade string-art brand — product storytelling, filters, and a warm editorial shop that lets craftsmanship lead the purchase.",
     tools: ["Figma", "E-commerce UI", "Product Design", "Responsive UI"],
     cover: "/projects/janalya/cover.webp",
-    coverAlt: "Janalya — screen 1",
+    coverAlt: "Janalya — handmade string art collection storefront",
     gallery: [
       {
         src: "/projects/janalya/gallery-01.webp",
@@ -267,7 +267,7 @@ export const projects: Project[] = [
       "A quiet luxury website for an Egyptian development house — heritage timeline, executive stewardship, and contact journeys framed by architecture and landscape.",
     tools: ["Figma", "Editorial Layout", "Prototyping", "Design Systems"],
     cover: "/projects/oroba/cover.webp",
-    coverAlt: "Orouba — screen 1",
+    coverAlt: "Orouba — luxury developments brand interface",
     gallery: [
       {
         src: "/projects/oroba/gallery-01.webp",
@@ -307,7 +307,7 @@ export const projects: Project[] = [
       "Corporate website for a digital agency — dark, precise, and conversion-focused, with regional partner showcases and a contact experience that feels always-on.",
     tools: ["Figma", "Corporate UI", "Design Systems", "Responsive UI"],
     cover: "/projects/sdm/cover.webp",
-    coverAlt: "Smart Digital Marketing — screen 1",
+    coverAlt: "Smart Digital Marketing — agency website hero",
     gallery: [
       {
         src: "/projects/sdm/gallery-01.webp",
@@ -355,7 +355,7 @@ export const projects: Project[] = [
       "A commerce operations dashboard — KPIs, sales charts, inventory alerts, refunds, and staff workflows designed for clarity under pressure.",
     tools: ["Figma", "Dashboard UI", "Data Visualization", "UX Flows"],
     cover: "/projects/snapsale/cover.webp",
-    coverAlt: "SnapSale — screen 1",
+    coverAlt: "SnapSale — commerce operations dashboard overview",
     gallery: [
       {
         src: "/projects/snapsale/gallery-01.webp",

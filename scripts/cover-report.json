@@ -1,0 +1,37 @@
+{
+  "dhara": {
+    "src": "/projects/dhara/cover.webp",
+    "alt": "Dhara Hospitality — Fayrouz Sanctuary gallery hero",
+    "why": "Gallery hero with clear Fayrouz branding and strong photography — crop top hero band"
+  },
+  "guiver": {
+    "src": "/projects/guiver/cover.webp",
+    "alt": "Guiver — European private travel hero interface",
+    "why": "Near-landscape cinematic hero (city + headline) — least crop distortion"
+  },
+  "janalya": {
+    "src": "/projects/janalya/cover.webp",
+    "alt": "Janalya — handmade string art collection storefront",
+    "why": "Collection grid with product craft clearly visible — crop top storefront"
+  },
+  "oroba": {
+    "src": "/projects/oroba/cover.webp",
+    "alt": "Orouba — luxury developments brand interface",
+    "why": "Widest Orouba frame with contact/brand presence — crop top editorial block"
+  },
+  "sdm": {
+    "src": "/projects/sdm/cover.webp",
+    "alt": "Smart Digital Marketing — agency website hero",
+    "why": "Agency partners/hero area, wider than skinny scrolls — crop top"
+  },
+  "snapsale": {
+    "src": "/projects/snapsale/cover.webp",
+    "alt": "SnapSale — commerce operations dashboard overview",
+    "why": "Already landscape dashboard slice with KPIs — sharp and representative"
+  },
+  "uthaibat": {
+    "src": "/projects/uthaibat/cover.webp",
+    "alt": "Al-Uthaibat — heritage books library interface",
+    "why": "Near-square books library card — clean UI without extreme tall scroll"
+  }
+}

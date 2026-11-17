@@ -3,15 +3,18 @@ import { Work } from "@/components/Work";
 import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
+import { PageTransition } from "@/components/PageTransition";
 
 export default function HomePage() {
   return (
-    <main>
-      <Hero />
-      <Work />
-      <About />
-      <Skills />
-      <Contact />
-    </main>
+    <PageTransition>
+      <main>
+        <Hero />
+        <Work />
+        <About />
+        <Skills />
+        <Contact />
+      </main>
+    </PageTransition>
   );
 }

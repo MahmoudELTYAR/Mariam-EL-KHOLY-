@@ -8,7 +8,7 @@ import {
   useMemo,
   useState,
 } from "react";
-import { useIsTouch, usePrefersReducedMotion } from "@/hooks/useMediaQuery";
+import { useIsTouch } from "@/hooks/useMediaQuery";
 
 type CursorState = "default" | "view" | "drag" | "link" | "hidden";
 
@@ -24,8 +24,7 @@ const CursorContext = createContext<CursorContextValue | null>(null);
 
 export function CursorProvider({ children }: { children: React.ReactNode }) {
   const isTouch = useIsTouch();
-  const reduced = usePrefersReducedMotion();
-  const enabled = !isTouch && !reduced;
+  const enabled = !isTouch;
   const [state, setState] = useState<CursorState>("default");
   const [label, setLabel] = useState("");
   const [pos, setPos] = useState({ x: -100, y: -100 });
@@ -59,12 +58,14 @@ export function CursorProvider({ children }: { children: React.ReactNode }) {
     [label, state, setCursor, resetCursor, enabled],
   );
 
+  const expanded = state === "view" || state === "drag" || state === "link";
+
   return (
     <CursorContext.Provider value={value}>
       {children}
       {enabled && (
         <div
-          className="custom-cursor pointer-events-none fixed z-[100] mix-blend-difference"
+          className="custom-cursor pointer-events-none fixed z-[100]"
           style={{
             left: pos.x,
             top: pos.y,
@@ -74,13 +75,13 @@ export function CursorProvider({ children }: { children: React.ReactNode }) {
           aria-hidden
         >
           <div
-            className={`grid place-items-center rounded-full border border-paper/40 bg-paper text-ink transition-all duration-300 ease-outExpo ${
-              state === "view" || state === "drag" || state === "link"
-                ? "h-20 w-20 text-[0.65rem] font-medium uppercase tracking-[0.18em]"
-                : "h-[18px] w-[18px] text-[0px]"
+            className={`grid place-items-center rounded-full border transition-all duration-200 ease-outExpo ${
+              expanded
+                ? "h-9 min-w-9 px-2.5 border-volt/70 bg-ink/90 text-[0.6rem] font-medium uppercase tracking-[0.16em] text-volt backdrop-blur-sm"
+                : "h-2.5 w-2.5 border-paper/50 bg-paper/90"
             } ${state === "hidden" ? "opacity-0 scale-50" : "opacity-100"}`}
           >
-            {label}
+            {expanded ? label : null}
           </div>
         </div>
       )}

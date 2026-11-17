@@ -1,70 +1,100 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { projects, type Project } from "@/data/projects";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { projects } from "@/data/projects";
 import { useCursor } from "@/components/providers/CursorProvider";
 import { usePrefersReducedMotion } from "@/hooks/useMediaQuery";
-import { ProjectPreview } from "@/components/ProjectPreview";
-import { cn } from "@/lib/cn";
 
-const INTERVAL_MS = 4000;
+const LOOP = [...projects, ...projects];
 
 export function Work() {
-  const viewportRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const reduced = usePrefersReducedMotion();
   const { setCursor, resetCursor } = useCursor();
-  const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [preview, setPreview] = useState<Project | null>(null);
-  const [dragX, setDragX] = useState(0);
-  const [slideW, setSlideW] = useState(720);
-  const [gap, setGap] = useState(24);
-
+  const [manualPause, setManualPause] = useState(false);
+  const [offset, setOffset] = useState(0);
+  const [halfWidth, setHalfWidth] = useState(0);
   const drag = useRef({
     active: false,
     startX: 0,
     startY: 0,
-    lastX: 0,
+    origin: 0,
     moved: false,
     axis: null as null | "x" | "y",
-    pointerId: -1,
   });
+  const offsetRef = useRef(0);
+  const rafRef = useRef(0);
+  const lastTs = useRef(0);
 
-  const count = projects.length;
+  const isPaused = paused || manualPause;
+
+  useEffect(() => {
+    offsetRef.current = offset;
+  }, [offset]);
 
   useEffect(() => {
     const measure = () => {
-      const vw = window.innerWidth;
-      if (vw < 768) {
-        setSlideW(Math.min(vw * 0.88, 420));
-        setGap(16);
-      } else {
-        setSlideW(Math.min(vw * 0.7, 720));
-        setGap(24);
-      }
+      const el = trackRef.current;
+      if (!el) return;
+      // half = one full set width
+      setHalfWidth(el.scrollWidth / 2);
     };
     measure();
+    const ro = new ResizeObserver(measure);
+    if (trackRef.current) ro.observe(trackRef.current);
     window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, []);
 
-  const goTo = useCallback(
-    (i: number) => {
-      setIndex(((i % count) + count) % count);
-      setDragX(0);
-    },
-    [count],
-  );
-
+  // Continuous autoplay — always on (slower when reduced-motion)
   useEffect(() => {
-    if (reduced || paused || preview) return;
-    const id = window.setInterval(() => {
-      setIndex((prev) => (prev + 1) % count);
-      setDragX(0);
-    }, INTERVAL_MS);
-    return () => window.clearInterval(id);
-  }, [reduced, paused, preview, count]);
+    const speed = reduced ? 18 : 42; // px / second
+    const tick = (ts: number) => {
+      if (!lastTs.current) lastTs.current = ts;
+      const dt = Math.min(48, ts - lastTs.current);
+      lastTs.current = ts;
+
+      if (!isPaused && halfWidth > 0 && !drag.current.active) {
+        let next = offsetRef.current - (speed * dt) / 1000;
+        if (next <= -halfWidth) next += halfWidth;
+        offsetRef.current = next;
+        setOffset(next);
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      lastTs.current = 0;
+    };
+  }, [isPaused, halfWidth, reduced]);
+
+  // Pause when tab hidden
+  useEffect(() => {
+    const onVis = () => setPaused(document.hidden);
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
+  }, []);
+
+  const wrap = (v: number) => {
+    if (halfWidth <= 0) return v;
+    let x = v;
+    while (x <= -halfWidth) x += halfWidth;
+    while (x > 0) x -= halfWidth;
+    return x;
+  };
+
+  const nudge = (dir: -1 | 1) => {
+    const step = Math.min(window.innerWidth * 0.72, 640) + 24;
+    setOffset((o) => wrap(o + dir * step));
+  };
 
   const onPointerDown = (e: React.PointerEvent) => {
     if (e.pointerType === "mouse" && e.button !== 0) return;
@@ -72,10 +102,9 @@ export function Work() {
       active: true,
       startX: e.clientX,
       startY: e.clientY,
-      lastX: e.clientX,
+      origin: offsetRef.current,
       moved: false,
       axis: null,
-      pointerId: e.pointerId,
     };
     setPaused(true);
   };
@@ -84,14 +113,11 @@ export function Work() {
     if (!drag.current.active) return;
     const dx = e.clientX - drag.current.startX;
     const dy = e.clientY - drag.current.startY;
-
     if (!drag.current.axis) {
       if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
-      // Vertical intent: cancel carousel drag so the page can scroll normally
       if (Math.abs(dy) > Math.abs(dx)) {
         drag.current.active = false;
         drag.current.axis = "y";
-        setDragX(0);
         setPaused(false);
         return;
       }
@@ -99,65 +125,33 @@ export function Work() {
       (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
       setCursor("drag", "Drag");
     }
-
     if (drag.current.axis !== "x") return;
     e.preventDefault();
     drag.current.moved = true;
-    drag.current.lastX = e.clientX;
-    setDragX(dx);
+    setOffset(wrap(drag.current.origin + dx));
   };
 
   const endDrag = () => {
-    if (!drag.current.active && drag.current.axis !== "x") {
+    if (drag.current.axis === "x") {
+      drag.current.active = false;
       drag.current.axis = null;
+      resetCursor();
+      setPaused(false);
       return;
     }
-    const wasHorizontal = drag.current.axis === "x";
     drag.current.active = false;
     drag.current.axis = null;
-    resetCursor();
-    setPaused(false);
-    if (!wasHorizontal) {
-      setDragX(0);
-      return;
-    }
-    const threshold = Math.min(80, slideW * 0.18);
-    if (dragX <= -threshold) goTo(index + 1);
-    else if (dragX >= threshold) goTo(index - 1);
-    else setDragX(0);
   };
-
-  const offset = -(index * (slideW + gap)) + dragX;
 
   return (
     <section id="work" className="relative overflow-x-clip bg-ink pt-section pb-section">
-      <div className="mx-auto mb-10 flex max-w-[1600px] items-end justify-between gap-6 px-gutter lg:mb-12">
-        <div>
-          <p className="mb-3 text-fluid-xs uppercase tracking-[0.28em] text-volt">Selected work</p>
-          <h2 className="font-display text-fluid-3xl leading-none tracking-tight">
-            Projects that
-            <br />
-            <span className="text-paper/55">earn their space.</span>
-          </h2>
-        </div>
-        <div className="flex shrink-0 items-center gap-2">
-          <button
-            type="button"
-            aria-label="Previous project"
-            onClick={() => goTo(index - 1)}
-            className="grid h-11 w-11 place-items-center rounded-full border border-paper/40 text-paper transition-colors hover:border-volt hover:text-volt focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
-          >
-            ←
-          </button>
-          <button
-            type="button"
-            aria-label="Next project"
-            onClick={() => goTo(index + 1)}
-            className="grid h-11 w-11 place-items-center rounded-full border border-paper/40 text-paper transition-colors hover:border-volt hover:text-volt focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
-          >
-            →
-          </button>
-        </div>
+      <div className="mx-auto mb-10 max-w-[1600px] px-gutter lg:mb-12">
+        <p className="mb-3 text-fluid-xs uppercase tracking-[0.28em] text-volt">Selected work</p>
+        <h2 className="font-display text-fluid-3xl leading-none tracking-tight">
+          Projects that
+          <br />
+          <span className="text-paper/55">earn their space.</span>
+        </h2>
       </div>
 
       <div
@@ -168,22 +162,20 @@ export function Work() {
         onBlurCapture={(e) => {
           if (!e.currentTarget.contains(e.relatedTarget as Node)) setPaused(false);
         }}
+        onTouchStart={() => setPaused(true)}
+        onTouchEnd={() => setPaused(false)}
       >
         <div
-          ref={viewportRef}
-          className="overflow-hidden px-gutter"
+          className="overflow-hidden"
           role="region"
           aria-roledescription="carousel"
           aria-label="Selected work projects"
         >
           <div
-            className="flex touch-pan-y will-change-transform"
+            ref={trackRef}
+            className="work-marquee flex gap-4 will-change-transform touch-pan-y md:gap-6"
             style={{
-              gap,
               transform: `translate3d(${offset}px, 0, 0)`,
-              transition: drag.current.active
-                ? "none"
-                : "transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)",
               touchAction: "pan-y",
             }}
             onPointerDown={onPointerDown}
@@ -191,36 +183,42 @@ export function Work() {
             onPointerUp={endDrag}
             onPointerCancel={endDrag}
           >
-            {projects.map((project, i) => (
-              <button
-                key={project.slug}
-                type="button"
-                className="group relative shrink-0 overflow-hidden bg-ink-elev text-left"
-                style={{ width: slideW }}
+            {LOOP.map((project, i) => (
+              <Link
+                key={`${project.slug}-${i}`}
+                href={`/work/${project.slug}`}
+                className="group relative w-[min(86vw,520px)] shrink-0 overflow-hidden bg-ink-elev md:w-[min(58vw,680px)]"
                 onMouseEnter={() => setCursor("view", "View")}
                 onMouseLeave={resetCursor}
-                onClick={() => {
-                  if (drag.current.moved) return;
-                  setPreview(project);
+                onClick={(e) => {
+                  if (drag.current.moved) {
+                    e.preventDefault();
+                    drag.current.moved = false;
+                  } else {
+                    sessionStorage.setItem("returnToWork", "1");
+                  }
                 }}
-                aria-label={`Preview ${project.title}`}
-                aria-current={i === index ? "true" : undefined}
+                aria-label={`Open ${project.title} case study`}
               >
-                <div className="relative aspect-[3/4] md:aspect-[16/11]">
+                <motion.div
+                  layoutId={i < projects.length ? `cover-${project.slug}` : undefined}
+                  className="relative aspect-[16/10] overflow-hidden"
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
                   <Image
                     src={project.cover}
                     alt={project.coverAlt}
                     fill
-                    sizes="(max-width: 768px) 88vw, 70vw"
-                    className="pointer-events-none object-cover object-top transition-transform duration-700 ease-outExpo group-hover:scale-[1.03]"
-                    priority={i < 2}
+                    sizes="(max-width: 768px) 86vw, 58vw"
+                    className="pointer-events-none object-cover transition-transform duration-500 ease-outExpo group-hover:scale-[1.04]"
+                    priority={i < 3}
                     draggable={false}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
-                </div>
-                <div className="absolute inset-x-0 bottom-0 p-5 md:p-7">
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent opacity-90" />
+                </motion.div>
+                <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
                   <div className="mb-2 flex items-center gap-3 text-fluid-xs uppercase tracking-[0.2em] text-paper/70">
-                    <span>{String(i + 1).padStart(2, "0")}</span>
+                    <span>{String((i % projects.length) + 1).padStart(2, "0")}</span>
                     <span className="h-px w-6 bg-paper/35" />
                     <span>{project.category}</span>
                   </div>
@@ -231,30 +229,62 @@ export function Work() {
                     {project.description}
                   </p>
                 </div>
-              </button>
+              </Link>
             ))}
           </div>
         </div>
 
-        <div className="mt-6 flex justify-center gap-2 px-gutter" role="tablist" aria-label="Project slides">
-          {projects.map((p, i) => (
-            <button
-              key={p.slug}
-              type="button"
-              role="tab"
-              aria-selected={i === index}
-              aria-label={`Go to ${p.title}`}
-              onClick={() => goTo(i)}
-              className={cn(
-                "h-1.5 rounded-full transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt",
-                i === index ? "w-8 bg-volt" : "w-1.5 bg-paper/40 hover:bg-paper/65",
-              )}
+        <div className="mx-auto mt-6 flex max-w-[1600px] items-center justify-between gap-4 px-gutter">
+          <div className="h-px flex-1 bg-paper/15" aria-hidden>
+            <div
+              className="h-px bg-volt/80 transition-[width] duration-300"
+              style={{
+                width: halfWidth
+                  ? `${(((-offset % halfWidth) + halfWidth) % halfWidth / halfWidth) * 100}%`
+                  : "0%",
+              }}
             />
-          ))}
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              aria-label="Previous projects"
+              onClick={() => nudge(1)}
+              className="icon-btn"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden>
+                <path d="M9 2L4 7l5 5" fill="none" stroke="currentColor" strokeWidth="1.4" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              aria-label={manualPause ? "Play carousel" : "Pause carousel"}
+              onClick={() => setManualPause((v) => !v)}
+              className="icon-btn"
+            >
+              {manualPause ? (
+                <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden>
+                  <path d="M3 1.5v9l8-4.5L3 1.5z" fill="currentColor" />
+                </svg>
+              ) : (
+                <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden>
+                  <path d="M3 2h2v8H3V2zm4 0h2v8H7V2z" fill="currentColor" />
+                </svg>
+              )}
+            </button>
+            <button
+              type="button"
+              aria-label="Next projects"
+              onClick={() => nudge(-1)}
+              className="icon-btn"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden>
+                <path d="M5 2l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.4" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
-
-      <ProjectPreview project={preview} onClose={() => setPreview(null)} />
     </section>
   );
 }
