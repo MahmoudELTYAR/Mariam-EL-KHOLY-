@@ -1,0 +1,92 @@
+export const site = {
+  name: "Mariam Mohamed Elkholy",
+  firstName: "Mariam",
+  lastName: "Elkholy",
+  role: "UI/UX Designer",
+  tagline: "Interfaces that feel inevitable — clear, human, and quietly bold.",
+  location: "Alexandria, Egypt",
+  email: "mariammohelkholy115@gmail.com",
+  phone: "01113585700",
+  phoneHref: "tel:+201113585700",
+  emailHref: "mailto:mariammohelkholy115@gmail.com",
+  cvPath: "/mariam-elkholy-cv.pdf",
+  linkedin: "#", // supply later
+  behance: "#", // supply later
+  about: {
+    lead: "I design digital products that people understand on first glance — and remember on the second.",
+    body: "Computer Science graduate, Teaching Assistant, and UI/UX designer at Smart Digital Marketing. I move between wireframes, high-fidelity systems, and developer collaboration with equal care. Technical roots keep my craft practical; visual instinct keeps it alive.",
+  },
+  experience: [
+    {
+      title: "UI/UX Designer",
+      org: "Smart Digital Marketing",
+      period: "2025 — Present",
+      points: [
+        "User-centered websites with clear navigation, hierarchy, and responsive layouts across real client industries.",
+        "Wireframes, high-fidelity screens, and interactive Figma prototypes — handed off with intention.",
+        "Design systems: typography, color, components, and reusable patterns that scale.",
+      ],
+    },
+    {
+      title: "Teaching Assistant",
+      org: "Alexandria University & Alexandria National University",
+      period: "Feb 2026 — Present",
+      points: [
+        "Labs and guidance in OOP, Java, Mobile Development, Web Development, UI Design, and HCI.",
+        "Reviewing student UI work with critique that sharpens craft, not just grades.",
+      ],
+    },
+  ],
+  education: {
+    program: "Software Industry and Multimedia (SIM)",
+    school: "Faculty of Science, Alexandria University",
+    period: "2021 — 2025",
+    detail: "CGPA 3.5736 / 4 — Excellent",
+  },
+  certifications: [
+    {
+      title: "UI/UX Diploma",
+      org: "Route IT Training Center",
+      year: "2025",
+    },
+    {
+      title: "Flutter Diploma",
+      org: "Route IT Training Center",
+      year: "2022",
+    },
+  ],
+  skills: {
+    craft: [
+      "Figma",
+      "UI Prototyping",
+      "Wireframing",
+      "Layout Systems",
+      "Design Systems",
+      "Visual Hierarchy",
+      "Responsive Design",
+      "HCI",
+    ],
+    tech: ["HTML", "CSS", "Java", "Python", "Flutter", "Dart"],
+    soft: [
+      "Teamwork",
+      "Time Management",
+      "Adaptability",
+      "Creative Problem Solving",
+      "Visual Thinking",
+    ],
+  },
+  marquee: [
+    "Figma",
+    "Prototyping",
+    "Wireframing",
+    "Design Systems",
+    "HTML / CSS",
+    "Flutter",
+    "Java",
+    "Python",
+    "HCI",
+    "Visual Thinking",
+    "Responsive UI",
+    "Brand Interfaces",
+  ],
+} as const;

@@ -1,0 +1,342 @@
+export type Project = {
+  slug: string;
+  title: string;
+  shortTitle: string;
+  year?: string;
+  role: string;
+  client?: string;
+  category: string;
+  description: string;
+  tools: string[];
+  cover: string;
+  coverAlt: string;
+  gallery: { src: string; alt: string }[];
+  problem: string;
+  solution: string;
+  outcome: string;
+  accent: string;
+  featured: boolean;
+};
+
+export const projects: Project[] = [
+  {
+    slug: "dhara",
+    title: "Dhara Hospitality",
+    shortTitle: "Dhara",
+    year: "2025",
+    role: "UI/UX Designer",
+    client: "Dhara Hotels — Fayrouz Sanctuary",
+    category: "Hospitality",
+    description:
+      "A luxury editorial website for a Nile dahabiya retreat — calm typography, immersive photography, and booking journeys that feel as considered as the voyage itself.",
+    tools: ["Figma", "Design Systems", "Prototyping", "Responsive UI"],
+    cover: "/projects/dhara/cover.webp",
+    coverAlt: "Dhara Hospitality gallery page with Nile dahabiya photography",
+    gallery: [
+      {
+        src: "/projects/dhara/gallery-01.webp",
+        alt: "Gastronomy section for Fayrouz Sanctuary",
+      },
+      {
+        src: "/projects/dhara/gallery-02.webp",
+        alt: "Story and philosophy page for Dhara Hospitality",
+      },
+      {
+        src: "/projects/dhara/gallery-03.webp",
+        alt: "Cabins and suites overview layout",
+      },
+      {
+        src: "/projects/dhara/gallery-04.webp",
+        alt: "Experience section with editorial imagery",
+      },
+      {
+        src: "/projects/dhara/gallery-05.webp",
+        alt: "Additional hospitality UI screens",
+      },
+    ],
+    problem:
+      "Luxury Nile travel often looks generic online — crowded grids, stocky type, and booking flows that break the sense of quiet exclusivity.",
+    solution:
+      "I built a serene visual system: high-contrast serif headlines, generous whitespace, masonry storytelling, and clear journey CTAs that guide guests from desire to booking.",
+    outcome:
+      "A premium digital presence that mirrors the sanctuary experience — readable on mobile, emotionally rich on desktop, and ready for developer handoff.",
+    accent: "#C8A96B",
+    featured: true,
+  },
+  {
+    slug: "uthaibat",
+    title: "Al-Uthaibat",
+    shortTitle: "Uthaibat",
+    year: "2025",
+    role: "UI/UX Designer",
+    client: "Saudi heritage initiative",
+    category: "Culture & Heritage",
+    description:
+      "A bilingual RTL platform for Saudi architectural heritage — books, partners, research, and place-based storytelling rooted in clay, craft, and community.",
+    tools: ["Figma", "RTL Layout", "Design Systems", "Content Architecture"],
+    cover: "/projects/uthaibat/cover.webp",
+    coverAlt: "Al-Uthaibat books library interface in Arabic",
+    gallery: [
+      {
+        src: "/projects/uthaibat/gallery-01.webp",
+        alt: "Experience partners grid with heritage portraits",
+      },
+      {
+        src: "/projects/uthaibat/gallery-02.webp",
+        alt: "Heritage content module with traditional architecture",
+      },
+      {
+        src: "/projects/uthaibat/gallery-03.webp",
+        alt: "Featured publication and related books layout",
+      },
+      {
+        src: "/projects/uthaibat/gallery-04.webp",
+        alt: "Additional Uthaibat interface screens",
+      },
+    ],
+    problem:
+      "Heritage content is dense and institutional. Visitors needed a modern, respectful interface that still felt culturally grounded — not a museum brochure pasted into a template.",
+    solution:
+      "Navy, gold, and cream as a cultural palette; clear Arabic hierarchy; card systems for books and partners; and floating utilities that keep discovery light across long pages.",
+    outcome:
+      "A dignified digital archive experience that makes research feel inviting, and gives partners and publications equal visual weight.",
+    accent: "#C5A059",
+    featured: true,
+  },
+  {
+    slug: "guiver",
+    title: "Guiver",
+    shortTitle: "Guiver",
+    year: "2025",
+    role: "UI/UX Designer",
+    client: "Guiver — private European travel",
+    category: "Travel",
+    description:
+      "Brand and website for a Munich-based private road-travel experience — editorial storytelling, trip discovery, and a personal host narrative that turns transfers into journeys.",
+    tools: ["Figma", "Brand UI", "Prototyping", "Responsive Design"],
+    cover: "/projects/guiver/cover.webp",
+    coverAlt: "Guiver hero with European cityscape and trip search",
+    gallery: [
+      {
+        src: "/projects/guiver/gallery-01.webp",
+        alt: "Guiver editorial landing with host narrative",
+      },
+      {
+        src: "/projects/guiver/gallery-02.webp",
+        alt: "Seven roads city trip cards",
+      },
+      {
+        src: "/projects/guiver/gallery-03.webp",
+        alt: "Trip discovery and destination modules",
+      },
+      {
+        src: "/projects/guiver/gallery-04.webp",
+        alt: "Host profile and contact CTA section",
+      },
+      {
+        src: "/projects/guiver/gallery-05.webp",
+        alt: "Vision mission values layout",
+      },
+    ],
+    problem:
+      "Private chauffeur services rarely feel branded. Guiver needed to communicate trust, personality, and luxury without looking like a taxi app.",
+    solution:
+      "A cinematic hero, lime-volt accents on deep navy, city trip cards with pricing clarity, and long-form sections that introduce Islam as host — not just driver.",
+    outcome:
+      "A distinctive travel brand site that sells stories and routes, with clear CTAs for booking conversations.",
+    accent: "#D4FF37",
+    featured: true,
+  },
+  {
+    slug: "janalya",
+    title: "Janalya",
+    shortTitle: "Janalya",
+    year: "2024",
+    role: "UI/UX Designer",
+    client: "Janalya String Art — Alexandria",
+    category: "E-commerce",
+    description:
+      "E-commerce interface for a handmade string-art brand — product storytelling, filters, and a warm editorial shop that lets craftsmanship lead the purchase.",
+    tools: ["Figma", "E-commerce UI", "Product Design", "Responsive UI"],
+    cover: "/projects/janalya/cover.webp",
+    coverAlt: "Janalya collection page with handmade string art products",
+    gallery: [
+      {
+        src: "/projects/janalya/gallery-01.webp",
+        alt: "Golden Mandala product detail page",
+      },
+      {
+        src: "/projects/janalya/gallery-02.webp",
+        alt: "Collection filters and product grid",
+      },
+      {
+        src: "/projects/janalya/gallery-03.webp",
+        alt: "Product storytelling module",
+      },
+      {
+        src: "/projects/janalya/gallery-04.webp",
+        alt: "Additional Janalya shop screens",
+      },
+    ],
+    problem:
+      "Handmade work dies in generic Shopify skins. Janalya needed a shop that feels as intentional as each woven piece.",
+    solution:
+      "Earthy browns and cream, serif product titles, dimension and investment filters, and PDP storytelling that explains materials, hours of craft, and collector editions.",
+    outcome:
+      "A boutique shopping experience that elevates string art from craft stall to collectible — clear paths from browse to cart.",
+    accent: "#8B6B45",
+    featured: true,
+  },
+  {
+    slug: "oroba",
+    title: "Orouba",
+    shortTitle: "Orouba",
+    year: "2026",
+    role: "UI/UX Designer",
+    client: "Orouba Developments",
+    category: "Real Estate",
+    description:
+      "A quiet luxury website for an Egyptian development house — heritage timeline, executive stewardship, and contact journeys framed by architecture and landscape.",
+    tools: ["Figma", "Editorial Layout", "Prototyping", "Design Systems"],
+    cover: "/projects/oroba/cover.webp",
+    coverAlt: "Orouba contact and location section",
+    gallery: [
+      {
+        src: "/projects/oroba/gallery-01.webp",
+        alt: "About page with vision mission values",
+      },
+      {
+        src: "/projects/oroba/gallery-02.webp",
+        alt: "Executive stewardship portrait cards",
+      },
+      {
+        src: "/projects/oroba/gallery-03.webp",
+        alt: "Heritage timeline and project narrative",
+      },
+      {
+        src: "/projects/oroba/gallery-04.webp",
+        alt: "Additional Orouba website screens",
+      },
+    ],
+    problem:
+      "Real-estate sites often shout. Orouba needed restraint — forest greens, stone imagery, and copy that signals legacy without brochure clichés.",
+    solution:
+      "Asymmetrical editorial grids, overlapping detail photography, a chronological Epoch narrative, and a refined contact form for private site tours.",
+    outcome:
+      "A brand site that feels like a destination brochure and a boardroom document at once — calm, credible, conversion-ready.",
+    accent: "#3D5C4A",
+    featured: true,
+  },
+  {
+    slug: "sdm",
+    title: "Smart Digital Marketing",
+    shortTitle: "SDM",
+    year: "2025",
+    role: "UI/UX Designer",
+    client: "Smart Digital Marketing",
+    category: "Agency",
+    description:
+      "Corporate website for a digital agency — dark, precise, and conversion-focused, with regional partner showcases and a contact experience that feels always-on.",
+    tools: ["Figma", "Corporate UI", "Design Systems", "Responsive UI"],
+    cover: "/projects/sdm/cover.webp",
+    coverAlt: "Smart Digital Marketing agency hero and partners",
+    gallery: [
+      {
+        src: "/projects/sdm/gallery-01.webp",
+        alt: "Contact section with glassmorphism form",
+      },
+      {
+        src: "/projects/sdm/gallery-02.webp",
+        alt: "Services and partners layout",
+      },
+      {
+        src: "/projects/sdm/gallery-03.webp",
+        alt: "Agency about and CTA modules",
+      },
+      {
+        src: "/projects/sdm/gallery-04.webp",
+        alt: "Additional SDM website screens",
+      },
+    ],
+    problem:
+      "Agency sites blur together. SDM needed a sharper digital face that signals technical precision and regional reach across Egypt and the Gulf.",
+    solution:
+      "Electric blue on deep charcoal, segmented regional partner filters, glowing form UI, and clear dual CTAs for journey vs partnership.",
+    outcome:
+      "A confident agency presence that supports real client acquisition — and a living design system I continue to refine in-house.",
+    accent: "#3B82F6",
+    featured: true,
+  },
+  {
+    slug: "snapsale",
+    title: "SnapSale",
+    shortTitle: "SnapSale",
+    year: "2025",
+    role: "UI/UX Designer",
+    client: "SmartDigital commerce platform",
+    category: "SaaS / Dashboard",
+    description:
+      "A commerce operations dashboard — KPIs, sales charts, inventory alerts, refunds, and staff workflows designed for clarity under pressure.",
+    tools: ["Figma", "Dashboard UI", "Data Visualization", "UX Flows"],
+    cover: "/projects/snapsale/cover.webp",
+    coverAlt: "SnapSale dashboard with KPI cards and sales chart",
+    gallery: [
+      {
+        src: "/projects/snapsale/gallery-01.webp",
+        alt: "Orders refund management tables",
+      },
+      {
+        src: "/projects/snapsale/gallery-02.webp",
+        alt: "Sales and inventory dashboard modules",
+      },
+      {
+        src: "/projects/snapsale/gallery-03.webp",
+        alt: "Finance and activity views",
+      },
+      {
+        src: "/projects/snapsale/gallery-04.webp",
+        alt: "KPI overview cards",
+      },
+      {
+        src: "/projects/snapsale/gallery-05.webp",
+        alt: "Additional SnapSale dashboard screens",
+      },
+    ],
+    problem:
+      "Ops teams drown in spreadsheets. SnapSale needed a dashboard that surfaces profit, stock risk, and refunds without visual noise.",
+    solution:
+      "Orange-forward brand accents, metric cards with status color, empty states that teach, and table patterns that stay scannable at a glance.",
+    outcome:
+      "A practical SaaS UI that makes daily commerce decisions faster — designed for Egyptian market currencies and real retail rhythms.",
+    accent: "#F28C00",
+    featured: true,
+  },
+];
+
+export const otherWork = [
+  {
+    title: "RTS Travel",
+    description:
+      "Website and booking platform concepts for a travel company — journey discovery and reservation clarity.",
+  },
+  {
+    title: "CrimeCatcher",
+    description:
+      "Public safety mobile UI in Figma with Illustrator branding and Flutter front-end exploration.",
+  },
+  {
+    title: "Pharmacy Mobile App",
+    description:
+      "Accessible pharmacy experience designed in Figma and implemented in Flutter for all ages.",
+  },
+];
+
+export function getProject(slug: string) {
+  return projects.find((p) => p.slug === slug);
+}
+
+export function getNextProject(slug: string) {
+  const i = projects.findIndex((p) => p.slug === slug);
+  if (i < 0) return projects[0];
+  return projects[(i + 1) % projects.length];
+}
