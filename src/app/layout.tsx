@@ -1,21 +1,29 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { AppShell } from "@/components/AppShell";
 import { site } from "@/data/site";
 import "./globals.css";
 
-const display = Syne({
-  subsets: ["latin"],
+const display = localFont({
+  src: [
+    { path: "../fonts/syne-500.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/syne-600.woff2", weight: "600", style: "normal" },
+    { path: "../fonts/syne-700.woff2", weight: "700", style: "normal" },
+    { path: "../fonts/syne-800.woff2", weight: "800", style: "normal" },
+  ],
   variable: "--font-display",
   display: "swap",
-  weight: ["500", "600", "700", "800"],
 });
 
-const sans = DM_Sans({
-  subsets: ["latin"],
+const sans = localFont({
+  src: [
+    { path: "../fonts/dmsans-400.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/dmsans-500.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/dmsans-600.woff2", weight: "600", style: "normal" },
+    { path: "../fonts/dmsans-700.woff2", weight: "700", style: "normal" },
+  ],
   variable: "--font-sans",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://mariam-elkholy.vercel.app";
