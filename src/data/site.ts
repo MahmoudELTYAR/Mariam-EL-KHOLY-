@@ -10,8 +10,6 @@ export const site = {
   phoneHref: "tel:+201113585700",
   emailHref: "mailto:mariammohelkholy115@gmail.com",
   cvPath: "/mariam-elkholy-cv.pdf",
-  linkedin: "#", // supply later
-  behance: "#", // supply later
   about: {
     lead: "I design digital products that people understand on first glance — and remember on the second.",
     body: "Computer Science graduate, Teaching Assistant, and UI/UX designer at Smart Digital Marketing. I move between wireframes, high-fidelity systems, and developer collaboration with equal care. Technical roots keep my craft practical; visual instinct keeps it alive.",

@@ -41,10 +41,17 @@ export function CursorProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    if (!enabled) return;
+    if (!enabled) {
+      document.body.classList.remove("has-custom-cursor");
+      return;
+    }
+    document.body.classList.add("has-custom-cursor");
     const move = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
     window.addEventListener("mousemove", move, { passive: true });
-    return () => window.removeEventListener("mousemove", move);
+    return () => {
+      document.body.classList.remove("has-custom-cursor");
+      window.removeEventListener("mousemove", move);
+    };
   }, [enabled]);
 
   const value = useMemo(
@@ -62,6 +69,7 @@ export function CursorProvider({ children }: { children: React.ReactNode }) {
             left: pos.x,
             top: pos.y,
             transform: "translate(-50%, -50%)",
+            pointerEvents: "none",
           }}
           aria-hidden
         >

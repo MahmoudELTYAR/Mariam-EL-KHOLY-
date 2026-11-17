@@ -38,12 +38,12 @@ export function Skills() {
           ] as const
         ).map(([label, items]) => (
           <div key={label}>
-            <h3 className="mb-4 text-fluid-xs uppercase tracking-[0.22em] text-paper/45">{label}</h3>
+            <h3 className="mb-4 text-fluid-xs uppercase tracking-[0.22em] text-paper/55">{label}</h3>
             <ul className="flex flex-wrap gap-2">
               {items.map((skill) => (
                 <li
                   key={skill}
-                  className="rounded-full border border-paper/15 px-3 py-1.5 text-fluid-sm text-paper/80 transition-colors hover:border-volt hover:text-volt"
+                  className="rounded-full border border-paper/25 px-3 py-1.5 text-fluid-sm text-paper/85 transition-colors hover:border-volt hover:text-volt"
                 >
                   {skill}
                 </li>

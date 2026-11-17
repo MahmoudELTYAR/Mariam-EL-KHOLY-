@@ -31,28 +31,56 @@ export const projects: Project[] = [
       "A luxury editorial website for a Nile dahabiya retreat — calm typography, immersive photography, and booking journeys that feel as considered as the voyage itself.",
     tools: ["Figma", "Design Systems", "Prototyping", "Responsive UI"],
     cover: "/projects/dhara/cover.webp",
-    coverAlt: "Dhara Hospitality gallery page with Nile dahabiya photography",
+    coverAlt: "Dhara Hospitality — screen 1",
     gallery: [
       {
         src: "/projects/dhara/gallery-01.webp",
-        alt: "Gastronomy section for Fayrouz Sanctuary",
+        alt: "Dhara Hospitality — screen 2",
       },
       {
         src: "/projects/dhara/gallery-02.webp",
-        alt: "Story and philosophy page for Dhara Hospitality",
+        alt: "Dhara Hospitality — screen 3",
       },
       {
         src: "/projects/dhara/gallery-03.webp",
-        alt: "Cabins and suites overview layout",
+        alt: "Dhara Hospitality — screen 4",
       },
       {
         src: "/projects/dhara/gallery-04.webp",
-        alt: "Experience section with editorial imagery",
+        alt: "Dhara Hospitality — screen 5",
       },
       {
         src: "/projects/dhara/gallery-05.webp",
-        alt: "Additional hospitality UI screens",
+        alt: "Dhara Hospitality — screen 6",
       },
+      {
+        src: "/projects/dhara/gallery-06.webp",
+        alt: "Dhara Hospitality — screen 7",
+      },
+      {
+        src: "/projects/dhara/gallery-07.webp",
+        alt: "Dhara Hospitality — screen 8",
+      },
+      {
+        src: "/projects/dhara/gallery-08.webp",
+        alt: "Dhara Hospitality — screen 9",
+      },
+      {
+        src: "/projects/dhara/gallery-09.webp",
+        alt: "Dhara Hospitality — screen 10",
+      },
+      {
+        src: "/projects/dhara/gallery-10.webp",
+        alt: "Dhara Hospitality — screen 11",
+      },
+      {
+        src: "/projects/dhara/gallery-11.webp",
+        alt: "Dhara Hospitality — screen 12",
+      },
+      {
+        src: "/projects/dhara/gallery-12.webp",
+        alt: "Dhara Hospitality — screen 13",
+      }
     ],
     problem:
       "Luxury Nile travel often looks generic online — crowded grids, stocky type, and booking flows that break the sense of quiet exclusivity.",
@@ -75,24 +103,32 @@ export const projects: Project[] = [
       "A bilingual RTL platform for Saudi architectural heritage — books, partners, research, and place-based storytelling rooted in clay, craft, and community.",
     tools: ["Figma", "RTL Layout", "Design Systems", "Content Architecture"],
     cover: "/projects/uthaibat/cover.webp",
-    coverAlt: "Al-Uthaibat books library interface in Arabic",
+    coverAlt: "Al-Uthaibat — screen 1",
     gallery: [
       {
         src: "/projects/uthaibat/gallery-01.webp",
-        alt: "Experience partners grid with heritage portraits",
+        alt: "Al-Uthaibat — screen 2",
       },
       {
         src: "/projects/uthaibat/gallery-02.webp",
-        alt: "Heritage content module with traditional architecture",
+        alt: "Al-Uthaibat — screen 3",
       },
       {
         src: "/projects/uthaibat/gallery-03.webp",
-        alt: "Featured publication and related books layout",
+        alt: "Al-Uthaibat — screen 4",
       },
       {
         src: "/projects/uthaibat/gallery-04.webp",
-        alt: "Additional Uthaibat interface screens",
+        alt: "Al-Uthaibat — screen 5",
       },
+      {
+        src: "/projects/uthaibat/gallery-05.webp",
+        alt: "Al-Uthaibat — screen 6",
+      },
+      {
+        src: "/projects/uthaibat/gallery-06.webp",
+        alt: "Al-Uthaibat — screen 7",
+      }
     ],
     problem:
       "Heritage content is dense and institutional. Visitors needed a modern, respectful interface that still felt culturally grounded — not a museum brochure pasted into a template.",
@@ -115,28 +151,52 @@ export const projects: Project[] = [
       "Brand and website for a Munich-based private road-travel experience — editorial storytelling, trip discovery, and a personal host narrative that turns transfers into journeys.",
     tools: ["Figma", "Brand UI", "Prototyping", "Responsive Design"],
     cover: "/projects/guiver/cover.webp",
-    coverAlt: "Guiver hero with European cityscape and trip search",
+    coverAlt: "Guiver — screen 1",
     gallery: [
       {
         src: "/projects/guiver/gallery-01.webp",
-        alt: "Guiver editorial landing with host narrative",
+        alt: "Guiver — screen 2",
       },
       {
         src: "/projects/guiver/gallery-02.webp",
-        alt: "Seven roads city trip cards",
+        alt: "Guiver — screen 3",
       },
       {
         src: "/projects/guiver/gallery-03.webp",
-        alt: "Trip discovery and destination modules",
+        alt: "Guiver — screen 4",
       },
       {
         src: "/projects/guiver/gallery-04.webp",
-        alt: "Host profile and contact CTA section",
+        alt: "Guiver — screen 5",
       },
       {
         src: "/projects/guiver/gallery-05.webp",
-        alt: "Vision mission values layout",
+        alt: "Guiver — screen 6",
       },
+      {
+        src: "/projects/guiver/gallery-06.webp",
+        alt: "Guiver — screen 7",
+      },
+      {
+        src: "/projects/guiver/gallery-07.webp",
+        alt: "Guiver — screen 8",
+      },
+      {
+        src: "/projects/guiver/gallery-08.webp",
+        alt: "Guiver — screen 9",
+      },
+      {
+        src: "/projects/guiver/gallery-09.webp",
+        alt: "Guiver — screen 10",
+      },
+      {
+        src: "/projects/guiver/gallery-10.webp",
+        alt: "Guiver — screen 11",
+      },
+      {
+        src: "/projects/guiver/gallery-11.webp",
+        alt: "Guiver — screen 12",
+      }
     ],
     problem:
       "Private chauffeur services rarely feel branded. Guiver needed to communicate trust, personality, and luxury without looking like a taxi app.",
@@ -159,24 +219,32 @@ export const projects: Project[] = [
       "E-commerce interface for a handmade string-art brand — product storytelling, filters, and a warm editorial shop that lets craftsmanship lead the purchase.",
     tools: ["Figma", "E-commerce UI", "Product Design", "Responsive UI"],
     cover: "/projects/janalya/cover.webp",
-    coverAlt: "Janalya collection page with handmade string art products",
+    coverAlt: "Janalya — screen 1",
     gallery: [
       {
         src: "/projects/janalya/gallery-01.webp",
-        alt: "Golden Mandala product detail page",
+        alt: "Janalya — screen 2",
       },
       {
         src: "/projects/janalya/gallery-02.webp",
-        alt: "Collection filters and product grid",
+        alt: "Janalya — screen 3",
       },
       {
         src: "/projects/janalya/gallery-03.webp",
-        alt: "Product storytelling module",
+        alt: "Janalya — screen 4",
       },
       {
         src: "/projects/janalya/gallery-04.webp",
-        alt: "Additional Janalya shop screens",
+        alt: "Janalya — screen 5",
       },
+      {
+        src: "/projects/janalya/gallery-05.webp",
+        alt: "Janalya — screen 6",
+      },
+      {
+        src: "/projects/janalya/gallery-06.webp",
+        alt: "Janalya — screen 7",
+      }
     ],
     problem:
       "Handmade work dies in generic Shopify skins. Janalya needed a shop that feels as intentional as each woven piece.",
@@ -199,24 +267,24 @@ export const projects: Project[] = [
       "A quiet luxury website for an Egyptian development house — heritage timeline, executive stewardship, and contact journeys framed by architecture and landscape.",
     tools: ["Figma", "Editorial Layout", "Prototyping", "Design Systems"],
     cover: "/projects/oroba/cover.webp",
-    coverAlt: "Orouba contact and location section",
+    coverAlt: "Orouba — screen 1",
     gallery: [
       {
         src: "/projects/oroba/gallery-01.webp",
-        alt: "About page with vision mission values",
+        alt: "Orouba — screen 2",
       },
       {
         src: "/projects/oroba/gallery-02.webp",
-        alt: "Executive stewardship portrait cards",
+        alt: "Orouba — screen 3",
       },
       {
         src: "/projects/oroba/gallery-03.webp",
-        alt: "Heritage timeline and project narrative",
+        alt: "Orouba — screen 4",
       },
       {
         src: "/projects/oroba/gallery-04.webp",
-        alt: "Additional Orouba website screens",
-      },
+        alt: "Orouba — screen 5",
+      }
     ],
     problem:
       "Real-estate sites often shout. Orouba needed restraint — forest greens, stone imagery, and copy that signals legacy without brochure clichés.",
@@ -239,24 +307,32 @@ export const projects: Project[] = [
       "Corporate website for a digital agency — dark, precise, and conversion-focused, with regional partner showcases and a contact experience that feels always-on.",
     tools: ["Figma", "Corporate UI", "Design Systems", "Responsive UI"],
     cover: "/projects/sdm/cover.webp",
-    coverAlt: "Smart Digital Marketing agency hero and partners",
+    coverAlt: "Smart Digital Marketing — screen 1",
     gallery: [
       {
         src: "/projects/sdm/gallery-01.webp",
-        alt: "Contact section with glassmorphism form",
+        alt: "Smart Digital Marketing — screen 2",
       },
       {
         src: "/projects/sdm/gallery-02.webp",
-        alt: "Services and partners layout",
+        alt: "Smart Digital Marketing — screen 3",
       },
       {
         src: "/projects/sdm/gallery-03.webp",
-        alt: "Agency about and CTA modules",
+        alt: "Smart Digital Marketing — screen 4",
       },
       {
         src: "/projects/sdm/gallery-04.webp",
-        alt: "Additional SDM website screens",
+        alt: "Smart Digital Marketing — screen 5",
       },
+      {
+        src: "/projects/sdm/gallery-05.webp",
+        alt: "Smart Digital Marketing — screen 6",
+      },
+      {
+        src: "/projects/sdm/gallery-06.webp",
+        alt: "Smart Digital Marketing — screen 7",
+      }
     ],
     problem:
       "Agency sites blur together. SDM needed a sharper digital face that signals technical precision and regional reach across Egypt and the Gulf.",
@@ -279,28 +355,52 @@ export const projects: Project[] = [
       "A commerce operations dashboard — KPIs, sales charts, inventory alerts, refunds, and staff workflows designed for clarity under pressure.",
     tools: ["Figma", "Dashboard UI", "Data Visualization", "UX Flows"],
     cover: "/projects/snapsale/cover.webp",
-    coverAlt: "SnapSale dashboard with KPI cards and sales chart",
+    coverAlt: "SnapSale — screen 1",
     gallery: [
       {
         src: "/projects/snapsale/gallery-01.webp",
-        alt: "Orders refund management tables",
+        alt: "SnapSale — screen 2",
       },
       {
         src: "/projects/snapsale/gallery-02.webp",
-        alt: "Sales and inventory dashboard modules",
+        alt: "SnapSale — screen 3",
       },
       {
         src: "/projects/snapsale/gallery-03.webp",
-        alt: "Finance and activity views",
+        alt: "SnapSale — screen 4",
       },
       {
         src: "/projects/snapsale/gallery-04.webp",
-        alt: "KPI overview cards",
+        alt: "SnapSale — screen 5",
       },
       {
         src: "/projects/snapsale/gallery-05.webp",
-        alt: "Additional SnapSale dashboard screens",
+        alt: "SnapSale — screen 6",
       },
+      {
+        src: "/projects/snapsale/gallery-06.webp",
+        alt: "SnapSale — screen 7",
+      },
+      {
+        src: "/projects/snapsale/gallery-07.webp",
+        alt: "SnapSale — screen 8",
+      },
+      {
+        src: "/projects/snapsale/gallery-08.webp",
+        alt: "SnapSale — screen 9",
+      },
+      {
+        src: "/projects/snapsale/gallery-09.webp",
+        alt: "SnapSale — screen 10",
+      },
+      {
+        src: "/projects/snapsale/gallery-10.webp",
+        alt: "SnapSale — screen 11",
+      },
+      {
+        src: "/projects/snapsale/gallery-11.webp",
+        alt: "SnapSale — screen 12",
+      }
     ],
     problem:
       "Ops teams drown in spreadsheets. SnapSale needed a dashboard that surfaces profit, stock risk, and refunds without visual noise.",

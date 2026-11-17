@@ -1,0 +1,268 @@
+{
+  "dhara": [
+    {
+      "src": "/projects/dhara/cover.webp",
+      "alt": "Dhara Hospitality — screen 1"
+    },
+    {
+      "src": "/projects/dhara/gallery-01.webp",
+      "alt": "Dhara Hospitality — screen 2"
+    },
+    {
+      "src": "/projects/dhara/gallery-02.webp",
+      "alt": "Dhara Hospitality — screen 3"
+    },
+    {
+      "src": "/projects/dhara/gallery-03.webp",
+      "alt": "Dhara Hospitality — screen 4"
+    },
+    {
+      "src": "/projects/dhara/gallery-04.webp",
+      "alt": "Dhara Hospitality — screen 5"
+    },
+    {
+      "src": "/projects/dhara/gallery-05.webp",
+      "alt": "Dhara Hospitality — screen 6"
+    },
+    {
+      "src": "/projects/dhara/gallery-06.webp",
+      "alt": "Dhara Hospitality — screen 7"
+    },
+    {
+      "src": "/projects/dhara/gallery-07.webp",
+      "alt": "Dhara Hospitality — screen 8"
+    },
+    {
+      "src": "/projects/dhara/gallery-08.webp",
+      "alt": "Dhara Hospitality — screen 9"
+    },
+    {
+      "src": "/projects/dhara/gallery-09.webp",
+      "alt": "Dhara Hospitality — screen 10"
+    },
+    {
+      "src": "/projects/dhara/gallery-10.webp",
+      "alt": "Dhara Hospitality — screen 11"
+    },
+    {
+      "src": "/projects/dhara/gallery-11.webp",
+      "alt": "Dhara Hospitality — screen 12"
+    },
+    {
+      "src": "/projects/dhara/gallery-12.webp",
+      "alt": "Dhara Hospitality — screen 13"
+    }
+  ],
+  "guiver": [
+    {
+      "src": "/projects/guiver/cover.webp",
+      "alt": "Guiver — screen 1"
+    },
+    {
+      "src": "/projects/guiver/gallery-01.webp",
+      "alt": "Guiver — screen 2"
+    },
+    {
+      "src": "/projects/guiver/gallery-02.webp",
+      "alt": "Guiver — screen 3"
+    },
+    {
+      "src": "/projects/guiver/gallery-03.webp",
+      "alt": "Guiver — screen 4"
+    },
+    {
+      "src": "/projects/guiver/gallery-04.webp",
+      "alt": "Guiver — screen 5"
+    },
+    {
+      "src": "/projects/guiver/gallery-05.webp",
+      "alt": "Guiver — screen 6"
+    },
+    {
+      "src": "/projects/guiver/gallery-06.webp",
+      "alt": "Guiver — screen 7"
+    },
+    {
+      "src": "/projects/guiver/gallery-07.webp",
+      "alt": "Guiver — screen 8"
+    },
+    {
+      "src": "/projects/guiver/gallery-08.webp",
+      "alt": "Guiver — screen 9"
+    },
+    {
+      "src": "/projects/guiver/gallery-09.webp",
+      "alt": "Guiver — screen 10"
+    },
+    {
+      "src": "/projects/guiver/gallery-10.webp",
+      "alt": "Guiver — screen 11"
+    },
+    {
+      "src": "/projects/guiver/gallery-11.webp",
+      "alt": "Guiver — screen 12"
+    }
+  ],
+  "janalya": [
+    {
+      "src": "/projects/janalya/cover.webp",
+      "alt": "Janalya — screen 1"
+    },
+    {
+      "src": "/projects/janalya/gallery-01.webp",
+      "alt": "Janalya — screen 2"
+    },
+    {
+      "src": "/projects/janalya/gallery-02.webp",
+      "alt": "Janalya — screen 3"
+    },
+    {
+      "src": "/projects/janalya/gallery-03.webp",
+      "alt": "Janalya — screen 4"
+    },
+    {
+      "src": "/projects/janalya/gallery-04.webp",
+      "alt": "Janalya — screen 5"
+    },
+    {
+      "src": "/projects/janalya/gallery-05.webp",
+      "alt": "Janalya — screen 6"
+    },
+    {
+      "src": "/projects/janalya/gallery-06.webp",
+      "alt": "Janalya — screen 7"
+    }
+  ],
+  "oroba": [
+    {
+      "src": "/projects/oroba/cover.webp",
+      "alt": "Orouba — screen 1"
+    },
+    {
+      "src": "/projects/oroba/gallery-01.webp",
+      "alt": "Orouba — screen 2"
+    },
+    {
+      "src": "/projects/oroba/gallery-02.webp",
+      "alt": "Orouba — screen 3"
+    },
+    {
+      "src": "/projects/oroba/gallery-03.webp",
+      "alt": "Orouba — screen 4"
+    },
+    {
+      "src": "/projects/oroba/gallery-04.webp",
+      "alt": "Orouba — screen 5"
+    }
+  ],
+  "sdm": [
+    {
+      "src": "/projects/sdm/cover.webp",
+      "alt": "Smart Digital Marketing — screen 1"
+    },
+    {
+      "src": "/projects/sdm/gallery-01.webp",
+      "alt": "Smart Digital Marketing — screen 2"
+    },
+    {
+      "src": "/projects/sdm/gallery-02.webp",
+      "alt": "Smart Digital Marketing — screen 3"
+    },
+    {
+      "src": "/projects/sdm/gallery-03.webp",
+      "alt": "Smart Digital Marketing — screen 4"
+    },
+    {
+      "src": "/projects/sdm/gallery-04.webp",
+      "alt": "Smart Digital Marketing — screen 5"
+    },
+    {
+      "src": "/projects/sdm/gallery-05.webp",
+      "alt": "Smart Digital Marketing — screen 6"
+    },
+    {
+      "src": "/projects/sdm/gallery-06.webp",
+      "alt": "Smart Digital Marketing — screen 7"
+    }
+  ],
+  "snapsale": [
+    {
+      "src": "/projects/snapsale/cover.webp",
+      "alt": "SnapSale — screen 1"
+    },
+    {
+      "src": "/projects/snapsale/gallery-01.webp",
+      "alt": "SnapSale — screen 2"
+    },
+    {
+      "src": "/projects/snapsale/gallery-02.webp",
+      "alt": "SnapSale — screen 3"
+    },
+    {
+      "src": "/projects/snapsale/gallery-03.webp",
+      "alt": "SnapSale — screen 4"
+    },
+    {
+      "src": "/projects/snapsale/gallery-04.webp",
+      "alt": "SnapSale — screen 5"
+    },
+    {
+      "src": "/projects/snapsale/gallery-05.webp",
+      "alt": "SnapSale — screen 6"
+    },
+    {
+      "src": "/projects/snapsale/gallery-06.webp",
+      "alt": "SnapSale — screen 7"
+    },
+    {
+      "src": "/projects/snapsale/gallery-07.webp",
+      "alt": "SnapSale — screen 8"
+    },
+    {
+      "src": "/projects/snapsale/gallery-08.webp",
+      "alt": "SnapSale — screen 9"
+    },
+    {
+      "src": "/projects/snapsale/gallery-09.webp",
+      "alt": "SnapSale — screen 10"
+    },
+    {
+      "src": "/projects/snapsale/gallery-10.webp",
+      "alt": "SnapSale — screen 11"
+    },
+    {
+      "src": "/projects/snapsale/gallery-11.webp",
+      "alt": "SnapSale — screen 12"
+    }
+  ],
+  "uthaibat": [
+    {
+      "src": "/projects/uthaibat/cover.webp",
+      "alt": "Al-Uthaibat — screen 1"
+    },
+    {
+      "src": "/projects/uthaibat/gallery-01.webp",
+      "alt": "Al-Uthaibat — screen 2"
+    },
+    {
+      "src": "/projects/uthaibat/gallery-02.webp",
+      "alt": "Al-Uthaibat — screen 3"
+    },
+    {
+      "src": "/projects/uthaibat/gallery-03.webp",
+      "alt": "Al-Uthaibat — screen 4"
+    },
+    {
+      "src": "/projects/uthaibat/gallery-04.webp",
+      "alt": "Al-Uthaibat — screen 5"
+    },
+    {
+      "src": "/projects/uthaibat/gallery-05.webp",
+      "alt": "Al-Uthaibat — screen 6"
+    },
+    {
+      "src": "/projects/uthaibat/gallery-06.webp",
+      "alt": "Al-Uthaibat — screen 7"
+    }
+  ]
+}

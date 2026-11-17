@@ -4,10 +4,19 @@ import { useRef } from "react";
 import { cn } from "@/lib/cn";
 import { useIsTouch, usePrefersReducedMotion } from "@/hooks/useMediaQuery";
 
+type Variant = "primary" | "secondary";
+
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  asChild?: boolean;
   href?: string;
   strength?: number;
+  variant?: Variant;
+};
+
+const variants: Record<Variant, string> = {
+  primary:
+    "border-volt bg-volt text-ink hover:border-paper hover:bg-paper hover:text-ink",
+  secondary:
+    "border-paper/40 bg-transparent text-paper hover:border-volt hover:text-volt",
 };
 
 export function MagneticButton({
@@ -15,6 +24,7 @@ export function MagneticButton({
   className,
   href,
   strength = 0.35,
+  variant = "primary",
   ...props
 }: Props) {
   const ref = useRef<HTMLElement>(null);
@@ -35,7 +45,8 @@ export function MagneticButton({
   };
 
   const classes = cn(
-    "magnetic inline-flex items-center justify-center gap-2 rounded-full border border-paper/20 bg-volt px-6 py-3 text-fluid-sm font-medium text-ink transition-colors duration-300 ease-outExpo hover:bg-paper",
+    "magnetic inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3 text-fluid-sm font-medium transition-colors duration-300 ease-outExpo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-volt",
+    variants[variant],
     className,
   );
 

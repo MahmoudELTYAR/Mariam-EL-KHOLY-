@@ -1,12 +1,58 @@
 "use client";
 
+import { useState } from "react";
 import { site } from "@/data/site";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { useCursor } from "@/components/providers/CursorProvider";
 
-export function Contact() {
+function Copyable({
+  label,
+  value,
+  href,
+}: {
+  label: string;
+  value: string;
+  href: string;
+}) {
+  const [copied, setCopied] = useState(false);
   const { setCursor, resetCursor } = useCursor();
 
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1600);
+    } catch {
+      /* ignore */
+    }
+  };
+
+  return (
+    <div>
+      <p className="mb-2 text-fluid-xs uppercase tracking-[0.2em] text-paper/55">{label}</p>
+      <div className="flex flex-wrap items-center gap-3">
+        <a
+          href={href}
+          className="text-fluid-sm break-all text-paper/90 transition-colors hover:text-volt"
+          onMouseEnter={() => setCursor("link", label)}
+          onMouseLeave={resetCursor}
+        >
+          {value}
+        </a>
+        <button
+          type="button"
+          onClick={copy}
+          className="rounded-full border border-paper/30 px-3 py-1 text-[0.7rem] uppercase tracking-[0.16em] text-paper/75 transition-colors hover:border-volt hover:text-volt focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt"
+          aria-label={`Copy ${label.toLowerCase()}`}
+        >
+          {copied ? "Copied" : "Copy"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export function Contact() {
   return (
     <footer id="contact" className="relative overflow-hidden border-t border-paper/10 bg-ink pb-10 pt-section">
       <div className="mx-auto max-w-[1600px] px-gutter">
@@ -18,54 +64,30 @@ export function Contact() {
         </h2>
 
         <div className="mt-10 flex flex-wrap gap-4">
-          <MagneticButton href={site.emailHref}>Email Mariam</MagneticButton>
-          <MagneticButton
-            href={site.phoneHref}
-            className="border-paper/25 bg-transparent text-paper hover:bg-paper hover:text-ink"
-          >
+          <MagneticButton href={site.emailHref} variant="primary">
+            Email Mariam
+          </MagneticButton>
+          <MagneticButton href={site.phoneHref} variant="secondary">
             Call
           </MagneticButton>
-          <MagneticButton
-            href={site.cvPath}
-            className="border-paper/25 bg-transparent text-paper hover:bg-paper hover:text-ink"
-          >
+          <MagneticButton href={site.cvPath} variant="secondary">
             Download CV
           </MagneticButton>
         </div>
 
-        <div className="mt-16 grid gap-8 border-t border-paper/10 pt-10 md:grid-cols-4">
+        <div className="mt-16 grid gap-8 border-t border-paper/10 pt-10 md:grid-cols-3">
+          <Copyable label="Email" value={site.email} href={site.emailHref} />
+          <Copyable label="Phone" value={site.phone} href={site.phoneHref} />
           <div>
-            <p className="mb-2 text-fluid-xs uppercase tracking-[0.2em] text-paper/40">Email</p>
-            <a
-              href={site.emailHref}
-              className="text-fluid-sm break-all transition-colors hover:text-volt"
-              onMouseEnter={() => setCursor("link", "Mail")}
-              onMouseLeave={resetCursor}
-            >
-              {site.email}
-            </a>
-          </div>
-          <div>
-            <p className="mb-2 text-fluid-xs uppercase tracking-[0.2em] text-paper/40">Phone</p>
-            <a href={site.phoneHref} className="text-fluid-sm transition-colors hover:text-volt">
-              {site.phone}
-            </a>
-          </div>
-          <div>
-            <p className="mb-2 text-fluid-xs uppercase tracking-[0.2em] text-paper/40">Location</p>
-            <p className="text-fluid-sm">{site.location}</p>
-          </div>
-          <div>
-            <p className="mb-2 text-fluid-xs uppercase tracking-[0.2em] text-paper/40">Social</p>
-            <div className="flex flex-col gap-1 text-fluid-sm text-paper/55">
-              <span>LinkedIn — link soon</span>
-              <span>Behance — link soon</span>
-            </div>
+            <p className="mb-2 text-fluid-xs uppercase tracking-[0.2em] text-paper/55">Location</p>
+            <p className="text-fluid-sm text-paper/90">{site.location}</p>
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-paper/10 pt-6 text-fluid-xs text-paper/40 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} {site.name}</p>
+        <div className="mt-16 flex flex-col gap-4 border-t border-paper/10 pt-6 text-fluid-xs text-paper/55 md:flex-row md:items-center md:justify-between">
+          <p>
+            © {new Date().getFullYear()} {site.name}
+          </p>
           <p className="uppercase tracking-[0.18em]">Designed with intention · Built to last</p>
         </div>
       </div>

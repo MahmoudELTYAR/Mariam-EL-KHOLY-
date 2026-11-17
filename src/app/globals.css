@@ -83,10 +83,25 @@ a {
   transform: translateY(110%);
 }
 
-.horizontal-track {
-  display: flex;
-  width: max-content;
-  will-change: transform;
+.preview-panel {
+  animation: previewIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes previewIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+body.has-custom-cursor,
+body.has-custom-cursor a,
+body.has-custom-cursor button {
+  cursor: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
